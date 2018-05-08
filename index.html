@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      html {height: 100%;}
+      body {height: 100%;margin: 0;}
+      #maps{height: 100%;}
+    </style>
+  </head>
+  <body>
+    <script src="app.js"></script>
+    <form>
+      <input type="file" onchange="load(this.files);"/>
+    </form>
+
+    <div id="maps"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<YOUR-API-KEY>&callback=initMap" async></script>
+    <script>
+      var map;
+      function initMap() {
+        var mapPosition = {lat: 46.8625927, lng: 103.7778176}
+        var mapArea = document.getElementById('maps');
+        var mapOptions = {
+          center: mapPosition,
+          zoom: 6,
+        };
+        map = new google.maps.Map(mapArea, mapOptions);
+      }
+    </script>
+  </body>
+</html>
